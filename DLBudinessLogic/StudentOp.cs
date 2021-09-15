@@ -39,7 +39,12 @@ namespace DLBudinessLogic
         public List<StudentModel> displayStudent()
         {
             List<StudentModel> sm = new List<StudentModel>();
-            var stud = db.StudentEntity.ToList();
+            var stud = (from students in db.StudentEntity.ToList()
+                        select new
+                        {
+                            sid = students.sid,
+                            sname = students.sname
+                        }).ToList();
             foreach(var item in stud)
             {
                 var student = new StudentModel();

@@ -24,7 +24,7 @@ namespace WebMVC.Controllers
         }
 
         [HttpPost]
-        [Route("Home/addstud")]
+        [Route("Home/addstud?sname")]
         public ActionResult AddStudent(string sname)
         {
             int i = icontract.addStudent(sname);
